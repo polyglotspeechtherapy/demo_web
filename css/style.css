@@ -1,0 +1,468 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --primary: #035e58;
+  --primary-dark: #023f3b;
+  --text-dark: #0c193e;
+  --bg-light: #f7fbfb;
+
+  --font-title: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-lg: 24px;
+  --transition: all 0.4s ease;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+  padding: 20px 0;
+}
+
+.header-logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subtitle-small {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.logo a {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.desktop-nav a {
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 12px 18px;
+  position: relative;
+}
+
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+.btn {
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition);
+}
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--primary-dark);
+}
+/* ================= Hamburger Mennu in Nav bar  ================= */
+/* Hamburger Menu */
+.hamburger-menu {
+  display: block;  /* Ensure it’s shown when needed */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute; /* Position relative to the parent */
+  top: 20px;   /* Adjust top positioning */
+  left: 20px;  /* Moves it to the left */
+}
+
+.hamburger-menu .bar {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 3px;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;  /* Ensure mobile menu aligns to the left */
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    top: 20px;  /* Adjust as needed */
+    left: 20px; /* Moves the hamburger to the left */
+  }
+
+  .mobile-nav {
+    left: 0;   /* Make sure it opens from the left */
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none;  /* Hide on larger screens */
+  }
+}
+
+/* ================= HERO BANNER ================= */
+.hero-banner {
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  aspect-ratio: 3 / 1;
+  background: url("../images/slp-banner.jpg") center / cover no-repeat;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* ================= INTRO ================= */
+.intro-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.intro h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.intro p {
+  font-size: 0.95rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+  padding: 50px 0;
+  background: var(--bg-light);
+  
+}
+
+.about-grid {
+  display: flex;              /* Use Flexbox to position items side by side */
+  justify-content: space-between; /* Add space between the items */
+  gap: 0px;                  /* Space between the text and image */
+  align-items: center; 
+}
+
+.about-text {
+  flex: 1;                    /* The text will take available space */
+  max-width: 500px;           /* Optional: Limit the width of the text */
+  margin-left: 20px;  
+}
+
+.about-text h3 {
+  font-family: var(--font-title);
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.about-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-list li {
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.about-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* About Image */
+.about-image {
+  flex: 1;                    /* The image will take remaining space */
+  max-width: 500px;           /* Optional: Limit max-width of the image */
+}
+
+.about-image img {
+  width: 100%;                /* Make the image responsive */
+  height: auto;               /* Maintain aspect ratio */
+  border-radius: 10px;        /* Optional: Rounded corners for the image */
+}
+/* ================= RESPONSIVE ================= */
+@media (max-width: 991px) {
+  .header-logo-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .header-left, .header-right {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hero-banner {
+    max-width: 90%;
+  }
+
+  .about-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .hero-banner {
+    max-width: 95%;
+  }
+
+  .intro h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ================= PROFILE PHOTO (TALL VERTICAL OVAL) ================= */
+/* Container defines tall, narrow oval shape */
+.profile-photo {
+  width: 40px;       /* Narrow width */
+  height: 450px;      /* Increased height to make it much taller */
+  border-radius: 70%;  /* Creates a perfect vertical oval */
+  overflow: hidden;   /* Crop image to shape */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border: 4px solid #fff;
+  margin: 0 auto;     /* Center horizontally */
+  background: #fff;   /* Fallback background */
+}
+
+/* Image auto-fits inside oval */
+.profile-photo img {
+  width: 100%;        /* Ensure the image fills the container width */
+  height: 100%;       /* Ensure the image fills the container height */
+  object-fit: cover;  /* Fill container and maintain aspect ratio */
+  object-position: center; /* Keep face or focal point centered */
+}
+
+/* Responsive adjustment for medium screens (tablets, etc.) */
+@media (max-width: 991px) {
+  .profile-photo {
+    width: 100px;       /* Smaller width */
+    height: 280px;      /* Adjust height for a more compact oval */
+  }
+}
+
+/* Further adjustment for very small screens (mobile phones) */
+@media (max-width: 576px) {
+  .profile-photo {
+    width: 150px;        /* Wider than previous 80px for mobile */
+    height: 220px;      /* Adjust height for a balanced oval */
+  }
+}
+
+
+/* ================= SERVICES CARDS ================= */
+
+.row-cards {
+  display: flex;                  /* arrange cards side by side */
+  justify-content: space-between; /* spread evenly */
+  flex-wrap: wrap;                /* wrap on smaller screens */
+  gap: 20px;                      /* space between cards */
+}
+
+.row-cards .card {
+  flex: 1 1 220px;                /* equal width, min 220px */
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.row-cards .card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.row-cards .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1f4d5a; /* matches your primary color */
+}
+
+.row-cards .card p {
+  font-size: 0.95rem;
+  color: #2b2b2b;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .row-cards {
+    justify-content: center; /* center cards on tablet */
+  }
+}
+
+@media (max-width: 576px) {
+  .row-cards .card {
+    flex: 1 1 100%; /* full width on mobile */
+  }
+}
+/* ================= SHOP ================= */
+
+/* Adjust the container size to make it smaller */
+.resources {
+  display: grid; /* or flex, depending on your layout */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the min size for the container */
+  gap: 10px; /* Space between cards */
+  padding: 10px; /* Adjust padding to make it more compact */
+}
+
+/* Adjust the individual card size */
+.resources .card {
+  padding: 10px; /* Reduce padding inside each card */
+  max-width: 15px; /* Limit the maximum width of each card */
+  text-align: center; /* Align the text and icon in the center */
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Optional: add shadow for better visual */
+  border-radius: 8px; /* Add rounded corners for smooth edges */
+  transition: transform 0.3s ease;
+}
+
+.resources .card:hover {
+  transform: translateY(-5px); /* Hover effect to raise the card slightly */
+}
+
+/* Resize the PDF icon to fit inside the card */
+.pdf-icon {
+  width: 10px;      /* Adjust icon size */
+  height: 10px;     /* Adjust icon height */
+  object-fit: contain; /* Make sure the icon retains its aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect on PDF icon */
+.pdf-icon:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* ================= FOOTER ================= */
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 5px;
+  background: #1f4d5a;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Make the page full height and push footer to bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Main content grows to fill space */
+.section {
+  flex: 1;
+}
+/* Ensure the content sections take up remaining space */
+.intro-section, .services-cta {
+  flex-grow: 1; /* This ensures that these sections take up the available space */
+
+}
+
+
+
+
+
+
+
+
+
